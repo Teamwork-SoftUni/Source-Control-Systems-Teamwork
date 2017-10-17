@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Prodavachnik</title>
-	<script src="scripts/jquery-3.1.1.min.js"></script>
-	<script src="scripts/jquery.mockjax.min.js"></script>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/jquery.mockjax.min.js"></script>
     <script src="scripts/api.js"></script>
     <script src="scripts/prodavachnik.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/prodavachnik.css" />
@@ -12,16 +12,17 @@
 </head>
 
 
-
 <body>
 <header id="menu" class="menu">
-    <a href="#" id="linkHome" class="menu-item">Home</a>
+    <a href="#" id="linkHome" class="menu-item" >Home</a>
     <a href="#" id="linkLogin" class="menu-item">Login</a>
     <a href="#" id="linkRegister" class="menu-item">Register</a>
+    <a href="#" id="linkListAds" class="menu-item">List Advertisements</a>
     <a href="#" id="linkLogout" class="menu-item">Logout</a>
     <span id="loggedInUser" class="menu-item"></span>
     <div></div>
 </header>
+
 
 <main>
     <section id="viewHome" class="viewHome">
@@ -50,8 +51,8 @@
             <div><input type="button" id="buttonRegisterUser" value="Register" /></div>
         </form>
     </section>
+
 	
-<!-- Added on stage3-1 -->
     <section id="viewAds" class="viewAds">
         <h1 class="titleForm">Advertisements</h1>
         <div id="ads" class="ads">
@@ -71,13 +72,12 @@
             </table>
         </div>
     </section>
-<!-- Added on stage3-1 -->
 
+	
     <script>
         startApp();
     </script>
 </main>
 <footer>Prodavachnik - Simple SPA Application</footer>
-
 </body>
 </html>

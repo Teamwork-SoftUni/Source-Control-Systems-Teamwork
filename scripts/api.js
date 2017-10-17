@@ -1,5 +1,5 @@
 (function () {
-// Mock repository
+    // Mock repository
     let adverts = [
         {
             _id: 0,
@@ -40,11 +40,9 @@
         }
     ];
 
-
-
     // User login
     $.mockjax(function (requestSettings) {
-        if (requestSettings.url === "https://mock.backend.com/user/kid_rk/login") {
+        if (requestSettings.url === "https://mock.api.com/user/kid_rk/login") {
             return {
                 response: function (origSettings) {
                     if (requestSettings.headers["Authorization"] === "Basic a2lkX3JrOjczNjgwNGE2Njg=") {
@@ -66,7 +64,7 @@
 
     // User create
     $.mockjax(function (requestSettings) {
-        if (requestSettings.url === "https://mock.backend.com/user/kid_rk/" &&
+        if (requestSettings.url === "https://mock.api.com/user/kid_rk/" &&
             requestSettings.method === "POST") {
             return {
                 response: function (origSettings) {
@@ -112,4 +110,3 @@
         }
     });
 })();
-
