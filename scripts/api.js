@@ -94,6 +94,24 @@
             };
         }
     });
+	
+	// Get user info
+    $.mockjax(function (requestSettings) {
+        if (requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)) {
+            let userId = requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)[1];
+            return {
+                response: function (origSettings) {
+                    if (requestSettings.headers["Authorization"].includes("Kinvey mock_token")) {
+                        let target = users.filter(u => u._id === Number(userId));
+                        this.responseText = target.shift();
+                    } else {
+                        this.status = 403;
+                        this.responseText = "You are not authorized";
+                    }
+                }
+            };
+        }
+    });
 
     // Loading of adverts
     $.mockjax(function (requestSettings) {
@@ -112,6 +130,7 @@
         }
     });
 	
+
 	// Load single advert
     $.mockjax(function (requestSettings) {
         if (requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/) &&
@@ -122,6 +141,25 @@
                     if (requestSettings.headers["Authorization"].includes("Kinvey mock_token")) {
                         let advert = adverts.filter(a => a._id === advertId);
                         this.responseText = advert.shift();
+                                          } else {
+                        this.status = 403;
+                        this.responseText = "You are not authorized";
+                    }
+                     }
+            };
+        }
+    });
+
+	// Get user info
+    $.mockjax(function (requestSettings) {
+        if (requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)) {
+            let userId = requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)[1];
+            return {
+                response: function (origSettings) {
+                    if (requestSettings.headers["Authorization"].includes("Kinvey mock_token")) {
+                        let target = users.filter(u => u._id === Number(userId));
+                        this.responseText = target.shift();
+
                     } else {
                         this.status = 403;
                         this.responseText = "You are not authorized";

@@ -142,3 +142,22 @@ footer {
     font-size: 0.8em;
     text-align: center;
 }
+
+#infoBox, #errorBox, #loadingBox {
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    transition: .5s ease-in;
+}
+
+#loadingBox {
+    background: #7CB3E9;
+}
+#infoBox {
+    background: #393;
+}
+#errorBox {
+    background: #F50;
+}
+
